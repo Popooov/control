@@ -26,7 +26,29 @@ class AbsenceController extends Controller
      */
     public function create()
     {
-        return view('absences.create');
+        $hours = [
+            // Bloque de la mañana
+            '08:00-08:50 - 1ª hora (mañana)',
+            '08:50-09:40 - 2ª hora (mañana)',
+            '09:40-10:30 - 3ª hora (mañana)',
+            '10:30-10:50 - Recreo (mañana)',
+            '10:50-11:40 - 4ª hora (mañana)',
+            '11:40-12:30 - 5ª hora (mañana)',
+            '12:30-13:20 - 6ª hora (mañana)',
+        
+            // Recreo intermedio
+            '13:20-13:50 - Recreo (mediodía)',
+        
+            // Bloque de la tarde
+            '13:50-14:40 - 1ª hora (tarde)',
+            '14:40-15:30 - 2ª hora (tarde)',
+            '15:30-16:20 - 3ª hora (tarde)',
+            '16:20-17:10 - 4ª hora (tarde)',
+            '17:10-18:00 - 5ª hora (tarde)',
+            '18:00-18:50 - 6ª hora (tarde)',
+        ];
+
+        return view('absences.create', ['hours' => $hours]);
     }
 
     /**
@@ -35,14 +57,16 @@ class AbsenceController extends Controller
     public function store()
     {
         request()->validate([
-            'prueba' => ['required', 'min:1'],
-            'reason' => ['required', 'min:3'],
+            'date' => ['required', 'date'],
+            'hour' => ['required'],
+            'comment' => ['required', 'min:5'],
         ]);
         
         $absence = Absence::create([
             'user_id' => Auth::getUser()->id,
-            'prueba' => request('prueba'),
-            'reason' => request('reason'),
+            'date' => request('date'),
+            'hour' => ['required'],
+            'comment' => request('comment'),
         ]);
         
         Mail::to($absence->user)
@@ -64,7 +88,29 @@ class AbsenceController extends Controller
      */
     public function edit(Absence $absence)
     {
-        return view('absences.edit', ['absence' => $absence]);
+        $hours = [
+            // Bloque de la mañana
+            '08:00-08:50 - 1ª hora (mañana)',
+            '08:50-09:40 - 2ª hora (mañana)',
+            '09:40-10:30 - 3ª hora (mañana)',
+            '10:30-10:50 - Recreo (mañana)',
+            '10:50-11:40 - 4ª hora (mañana)',
+            '11:40-12:30 - 5ª hora (mañana)',
+            '12:30-13:20 - 6ª hora (mañana)',
+        
+            // Recreo intermedio
+            '13:20-13:50 - Recreo (mediodía)',
+        
+            // Bloque de la tarde
+            '13:50-14:40 - 1ª hora (tarde)',
+            '14:40-15:30 - 2ª hora (tarde)',
+            '15:30-16:20 - 3ª hora (tarde)',
+            '16:20-17:10 - 4ª hora (tarde)',
+            '17:10-18:00 - 5ª hora (tarde)',
+            '18:00-18:50 - 6ª hora (tarde)',
+        ];
+
+        return view('absences.edit', ['absence' => $absence, 'hours' => $hours]);
     }
 
     /**
@@ -74,13 +120,15 @@ class AbsenceController extends Controller
     {
         request()->validate([
             'date' => ['required', 'date'],
-            'reason' => ['required', 'min:3'],
+            'hour' => ['required'],
+            'comment' => ['required', 'min:5'],
         ]);
         
         Absence::create([
             'user_id' => Auth::getUser()->id,
             'date' => request('date'),
-            'reason' => request('reason'),
+            'hour' => ['required'],
+            'comment' => request('comment'),
         ]);
 
         return redirect('/absences/' . $absence->id);

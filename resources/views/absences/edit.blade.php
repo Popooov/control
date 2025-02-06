@@ -10,50 +10,31 @@
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div class="sm:col-span-4">
-                <label for="reason" class="block text-sm/6 font-medium text-gray-900">Motivo</label>
+              <x-form-field>
+                <x-form-label for="fecha">Fecha</x-form-label>
                 <div class="mt-2">
-                  <div class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                    <input
-                        type="text"
-                        name="reason"
-                        id="reason"
-                        class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
-                        required
-                        placeholder="motivo de ausencia"
-                        value="{{ $absence->reason }}"
-                    >
-                  </div>
-
-                  @error('reason')
-                    <p class="text-xs text-red-600 font-semibold mt-1">{{ $message }}</p>
-                  @enderror
-
+                  <x-form-input type="date" name="fecha" id="fecha" placeholder="fecha" required />
+                  <x-form-error name="fecha" />
                 </div>
-              </div>
+              </x-form-field>
 
-              <div class="sm:col-span-4">
-                <label for="fecha" class="block text-sm/6 font-medium text-gray-900">Fecha</label>
+              <x-form-field>
+                <x-form-label for="hora">Hora</x-form-label>
                 <div class="mt-2">
-                  <div class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                    <input
-                    type="text"
-                    name="fecha"
-                    id="fecha"
-                    class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6"
-                    required
-                    placeholder="fecha"
-                    value="{{ $absence->date }}"
-                >
-                  </div>
-
-                  @error('fecha')
-                    <p class="text-xs text-red-600 font-semibold mt-1">{{ $message }}</p>
-                  @enderror
-
+                  <x-form-select :hours="$hours" name="hora" id="hora" placeholder="hora" required />
+                  <x-form-error name="hora" />
                 </div>
-              </div>
+              </x-form-field>
+              
+              <x-form-field>
+                <x-form-label for="motivo">Motivo de ausencia</x-form-label>
+                <div class="mt-2">
+                  <x-form-input value="{{ $absence->comment }}" name="motivo" id="motivo" placeholder="motivo" required />
+                    <x-form-error name="motivo" />
+                </div>
+              </x-form-field>
           </div>
+
         </div>
       
         
