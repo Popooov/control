@@ -11,26 +11,26 @@
           <div class="flex flex-col justify-center items-center border-b border-gray-900/10 pb-12">
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <x-form-field>
-                <x-form-label for="fecha">Fecha</x-form-label>
+                <x-form-label for="date">Fecha</x-form-label>
                 <div class="mt-2">
-                  <x-form-input type="date" name="fecha" id="fecha" placeholder="fecha" required />
-                  <x-form-error name="fecha" />
+                  <x-form-input type="date" name="date" id="date" placeholder="Fecha" required />
+                  <x-form-error name="date" />
                 </div>
               </x-form-field>
 
               <x-form-field>
-                <x-form-label for="hora">Hora</x-form-label>
+                <x-form-label for="hour">Hora</x-form-label>
                 <div class="mt-2">
-                  <x-form-select :hours="$hours" name="hora" id="hora" placeholder="hora" required />
-                  <x-form-error name="hora" />
+                  <x-form-select :hours="$hours" name="hour" id="hour" placeholder="hora" required />
+                  <x-form-error name="hour" />
                 </div>
               </x-form-field>
                 
               <x-form-field>
-                <x-form-label for="motivo">Motivo de ausencia</x-form-label>
+                <x-form-label for="comment">Motivo de ausencia</x-form-label>
                 <div class="mt-2">
-                  <x-form-input value="{{ $absence->comment }}" name="motivo" id="motivo" placeholder="motivo" />
-                    <x-form-error name="motivo" />
+                  <x-form-input value="{{ $absence->comment }}" name="comment" id="comment" placeholder="motivo" />
+                    <x-form-error name="comment" />
                 </div>
               </x-form-field>
           </div>

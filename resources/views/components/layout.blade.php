@@ -17,8 +17,8 @@
                         <div class="flex items-center">
                             
                             <div class="hidden md:block">
-                                <div class="ml-10 flex items-baseline space-x-4">
-                                    <x-nav-link href="/" :active="request()->is('/')">Inicio</x-nav-link>
+                                <div class="flex items-baseline space-x-4">
+                                    {{-- <x-nav-link href="/" :active="request()->is('/')">Inicio</x-nav-link> --}}
                                     @auth
                                         <x-nav-link href="/absences" :active="request()->is('/absences')">Control de ausencias</x-nav-link>
                                     @endauth
@@ -29,8 +29,10 @@
                             <div class="ml-4 flex items-center md:ml-6">
                                 @guest
                                     <x-nav-link href="/login" :active="request()->is('login')">Iniciar Sesión</x-nav-link>
-                                    <x-nav-link href="/register" :active="request()->is('register')">Registrarse</x-nav-link>
                                 @endguest
+
+                                {{-- <x-nav-link href="/register" :active="request()->is('register')">Registrarse</x-nav-link> --}}
+                                
                                 @auth
                                     <form method='POST' action='/logout'>
                                         @csrf

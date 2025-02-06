@@ -55,7 +55,7 @@ class AbsenceController extends Controller
     public function store()
     {
         request()->validate([
-            'date' => ['required', 'date'],
+            'date' => ['required', 'date_format:Y-m-d'],
             'hour' => ['required'],
             'comment' => ['required', 'min:5'],
         ]);

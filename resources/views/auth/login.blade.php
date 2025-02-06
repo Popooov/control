@@ -23,14 +23,14 @@
                     <x-form-error name="password" />
                 </div>
               </x-form-field>
-
+              
+            </div>
           </div>
-        </div>
-      
+          
+          <div class="mt-6 flex items-center justify-start gap-x-6">
+            <a href="/" class="text-sm/6 font-semibold text-gray-700">Cancelar</a>
+            <x-form-button>Iniciar sesión</x-form-button>
+          </div>
 
-        <div class="mt-6 flex items-center justify-end gap-x-6">
-          <a href="/" class="text-sm/6 font-semibold text-gray-700">Cancelar</a>
-          <x-form-button>Iniciar sesión</x-form-button>
-        </div>
       </form>
 </x-layout>

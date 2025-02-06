@@ -3,26 +3,24 @@
     Ausencias
   </x-slot:heading>
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+    <ul role="list" class="divide-y divide-gray-100">
         @foreach ($absences as $absence)
-          <div class="group relative">
-            <div class="mt-4 flex justify-between">
-              <div>
-                <h3 class="text-sm text-gray-700">
-                  <a href="/absences/{{ $absence['id'] }}">
-                    <span aria-hidden="true" class="absolute inset-0"></span>
-                    {{ $absence['date'] }}
-                  </a>
-                </h3>
-                <p class="mt-1 text-sm text-gray-500">{{ $absence['comment'] }}</p>
-              </div>
-              <div>
-                <p class="text-sm font-medium text-gray-900">{{ $absence->user->name }}</p>
+        <li class="gap-x-6 py-5 bg-slate-100">
+          <a class="flex justify-evenly" href="/absences/{{ $absence['id'] }}">
+            <div class="flex min-w-0 gap-x-4">
+              {{-- <img class="size-12 flex-none rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""> --}}
+              <div class="min-w-0 flex-auto">
+                <p class="text-sm/6 font-semibold text-gray-900">Leslie Alexander</p>
+                <p class="mt-1 truncate text-xs/5 text-gray-500">leslie.alexander@example.com</p>
               </div>
             </div>
-          </div>
+            <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+              <p class="text-sm/6 text-gray-900">Co-Founder / CEO</p>
+              <p class="mt-1 text-xs/5 text-gray-500">Last seen <time datetime="2023-01-23T13:23Z">3h ago</time></p>
+            </div>
+          </a>
         @endforeach
-      </div>
+        </ul>
     </div>
     
     {{ $absences->links() }}

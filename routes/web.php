@@ -7,10 +7,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
 
+Route::redirect('/', '/login');
+
 Route::resource('absences', AbsenceController::class);
 
-Route::get('/absences', [AbsenceController::class, 'index']);
-Route::get('/absences/create', [AbsenceController::class, 'create']);
+Route::get('/absences', [AbsenceController::class, 'index'])->middleware('auth');
+Route::get('/absences/create', [AbsenceController::class, 'create'])->middleware('auth');
 Route::post('/absences', [AbsenceController::class, 'store'])->middleware('auth');
 Route::get('/absences/{absence}', [AbsenceController::class, 'show']);
 Route::get('/absences/{absence}/edit', [AbsenceController::class, 'edit'])
