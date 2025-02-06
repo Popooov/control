@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AbsencePosted;
 use App\Models\Absence;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AbsenceController extends Controller
 {
@@ -34,16 +35,19 @@ class AbsenceController extends Controller
     public function store()
     {
         request()->validate([
-            'date' => ['required', 'date'],
+            'prueba' => ['required', 'min:1'],
             'reason' => ['required', 'min:3'],
         ]);
         
-        Absence::create([
+        $absence = Absence::create([
             'user_id' => Auth::getUser()->id,
-            'date' => request('date'),
+            'prueba' => request('prueba'),
             'reason' => request('reason'),
         ]);
-    
+        
+        Mail::to($absence->user)
+            ->send(new AbsencePosted($absence));
+        
         return redirect('/absences');
     }
 

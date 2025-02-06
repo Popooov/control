@@ -11,7 +11,7 @@
               <x-form-field>
                 <x-form-label for="fecha">Fecha</x-form-label>
                 <div class="mt-2">
-                  <x-form-input name="fecha" id="fecha" placeholder="fecha" required />
+                  <x-form-input type="datetime-local" name="fecha" id="fecha" placeholder="fecha" required />
                   <x-form-error name="fecha" />
                 </div>
               </x-form-field>

@@ -3,17 +3,9 @@
 use App\Http\Controllers\AbsenceController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
-
-Route::get('test', function () {
-    Mail::to('popovalejandro@gmail.com')
-        ->send(new \App\Mail\AbsencePosted());
-
-    return 'El correo electrónico ha sido enviado';
-});
 
 Route::resource('absences', AbsenceController::class);
 
