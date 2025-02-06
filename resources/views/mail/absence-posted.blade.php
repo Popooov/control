@@ -1,0 +1,1 @@
+La ausencia se ha añadido correctamente.
