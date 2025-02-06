@@ -25,7 +25,7 @@
                   <x-form-error name="hora" />
                 </div>
               </x-form-field>
-              
+                
               <x-form-field>
                 <x-form-label for="motivo">Motivo de ausencia</x-form-label>
                 <div class="mt-2">

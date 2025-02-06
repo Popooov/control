@@ -65,7 +65,7 @@ class AbsenceController extends Controller
         $absence = Absence::create([
             'user_id' => Auth::getUser()->id,
             'date' => request('date'),
-            'hour' => ['required'],
+            'hour' =>  request('hour'),
             'comment' => request('comment'),
         ]);
         
@@ -127,7 +127,7 @@ class AbsenceController extends Controller
         Absence::create([
             'user_id' => Auth::getUser()->id,
             'date' => request('date'),
-            'hour' => ['required'],
+            'hour' =>  request('hour'),
             'comment' => request('comment'),
         ]);
 
