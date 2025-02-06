@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->string('hour');
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });

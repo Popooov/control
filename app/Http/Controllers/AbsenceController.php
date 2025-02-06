@@ -28,24 +28,22 @@ class AbsenceController extends Controller
     {
         $hours = [
             // Bloque de la mañana
-            '08:00-08:50 - 1ª hora (mañana)',
-            '08:50-09:40 - 2ª hora (mañana)',
-            '09:40-10:30 - 3ª hora (mañana)',
-            '10:30-10:50 - Recreo (mañana)',
-            '10:50-11:40 - 4ª hora (mañana)',
-            '11:40-12:30 - 5ª hora (mañana)',
-            '12:30-13:20 - 6ª hora (mañana)',
-        
-            // Recreo intermedio
-            '13:20-13:50 - Recreo (mediodía)',
+            '08:55 - 1ª hora (mañana)',
+            '09:50 - 2ª hora (mañana)',
+            '10:45 - 3ª hora (mañana)',
+            '11:15 - Recreo (mañana)',
+            '12:10 - 4ª hora (mañana)',
+            '13:05 - 5ª hora (mañana)',
+            '14:00 - 6ª hora (mañana)',
         
             // Bloque de la tarde
-            '13:50-14:40 - 1ª hora (tarde)',
-            '14:40-15:30 - 2ª hora (tarde)',
-            '15:30-16:20 - 3ª hora (tarde)',
-            '16:20-17:10 - 4ª hora (tarde)',
-            '17:10-18:00 - 5ª hora (tarde)',
-            '18:00-18:50 - 6ª hora (tarde)',
+            '13:50-14:55 - 1ª hora (tarde)',
+            '14:40-15:50 - 2ª hora (tarde)',
+            '15:30-16:45 - 3ª hora (tarde)',
+            '13:20-17:15 - Recreo (tarde)',
+            '16:20-18:10 - 4ª hora (tarde)',
+            '17:10-19:05 - 5ª hora (tarde)',
+            '18:00-20:00 - 6ª hora (tarde)',
         ];
 
         return view('absences.create', ['hours' => $hours]);
@@ -98,16 +96,13 @@ class AbsenceController extends Controller
             '11:40-12:30 - 5ª hora (mañana)',
             '12:30-13:20 - 6ª hora (mañana)',
         
-            // Recreo intermedio
-            '13:20-13:50 - Recreo (mediodía)',
-        
             // Bloque de la tarde
-            '13:50-14:40 - 1ª hora (tarde)',
-            '14:40-15:30 - 2ª hora (tarde)',
-            '15:30-16:20 - 3ª hora (tarde)',
-            '16:20-17:10 - 4ª hora (tarde)',
-            '17:10-18:00 - 5ª hora (tarde)',
-            '18:00-18:50 - 6ª hora (tarde)',
+            '14:40 - 1ª hora (tarde)',
+            '15:30 - 2ª hora (tarde)',
+            '16:20 - 3ª hora (tarde)',
+            '17:10 - 4ª hora (tarde)',
+            '18:00 - 5ª hora (tarde)',
+            '18:50 - 6ª hora (tarde)',
         ];
 
         return view('absences.edit', ['absence' => $absence, 'hours' => $hours]);

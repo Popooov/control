@@ -27,7 +27,7 @@
               <x-form-field>
                 <x-form-label for="motivo">Motivo de ausencia</x-form-label>
                 <div class="mt-2">
-                  <x-form-input name="motivo" id="motivo" placeholder="motivo" required />
+                  <x-form-input name="motivo" id="motivo" placeholder="motivo" />
                     <x-form-error name="motivo" />
                 </div>
               </x-form-field>

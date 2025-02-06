@@ -8,7 +8,7 @@
         @method('PATCH')
 
         <div class="space-y-12">
-          <div class="border-b border-gray-900/10 pb-12">
+          <div class="flex flex-col justify-center items-center border-b border-gray-900/10 pb-12">
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <x-form-field>
                 <x-form-label for="fecha">Fecha</x-form-label>
@@ -29,7 +29,7 @@
               <x-form-field>
                 <x-form-label for="motivo">Motivo de ausencia</x-form-label>
                 <div class="mt-2">
-                  <x-form-input value="{{ $absence->comment }}" name="motivo" id="motivo" placeholder="motivo" required />
+                  <x-form-input value="{{ $absence->comment }}" name="motivo" id="motivo" placeholder="motivo" />
                     <x-form-error name="motivo" />
                 </div>
               </x-form-field>
@@ -37,7 +37,6 @@
 
         </div>
       
-        
         <div class="mt-6 flex items-center justify-between gap-x-6">
             @can('delete')
               <button form="delete-form" class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Eliminar</button>

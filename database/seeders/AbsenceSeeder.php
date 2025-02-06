@@ -19,20 +19,22 @@ class AbsenceSeeder extends Seeder
 
         // Definimos algunas franjas horarias de ejemplo
         $hours = [
-            '08:00-08:50',
-            '08:50-09:40',
-            '09:40-10:30',
-            '10:30-10:50', // Recreo
-            '10:50-11:40',
-            '11:40-12:30',
-            '12:30-13:20',
-            '13:20-13:50', // Recreo
-            '13:50-14:40',
-            '14:40-15:30',
-            '15:30-16:20',
-            '16:20-17:10',
-            '17:10-18:00',
-            '18:00-18:50',
+            // Bloque de la mañana
+            '08:00-08:50 - 1ª hora (mañana)',
+            '08:50-09:40 - 2ª hora (mañana)',
+            '09:40-10:30 - 3ª hora (mañana)',
+            '10:30-10:50 - Recreo (mañana)',
+            '10:50-11:40 - 4ª hora (mañana)',
+            '11:40-12:30 - 5ª hora (mañana)',
+            '12:30-13:20 - 6ª hora (mañana)',
+        
+            // Bloque de la tarde
+            '14:40 - 1ª hora (tarde)',
+            '15:30 - 2ª hora (tarde)',
+            '16:20 - 3ª hora (tarde)',
+            '17:10 - 4ª hora (tarde)',
+            '18:00 - 5ª hora (tarde)',
+            '18:50 - 6ª hora (tarde)',
         ];
 
         // Para cada profesor creamos 3 ausencias aleatorias
