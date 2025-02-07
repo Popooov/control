@@ -35,13 +35,27 @@
                 <x-form-label for="department_id">Departamento</x-form-label>
                 <div class="mt-2">
                   <div class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                    <select class="rounded-md block min-w-0 grow py-2.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6">
+                    <select name="department_id" class="rounded-md block min-w-0 grow py-2.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6">
                         @foreach($departments as $department)
                             <option value="{{ $department->id }}">{{ $department->name }}</option>
                         @endforeach
                     </select>
                   </div>
                   <x-form-error name="department_id" />
+                </div>
+              </x-form-field>
+
+              <x-form-field>
+                <x-form-label for="alias">Alias</x-form-label>
+                <div class="mt-2">
+                  <div class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+                    <select name="alias" class="rounded-md block min-w-0 grow py-2.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6">
+                        @foreach($alias as $alia)
+                            <option value="{{ $alia }}">{{ $alia }}</option>
+                        @endforeach
+                    </select>
+                  </div>
+                  <x-form-error name="alias" />
                 </div>
               </x-form-field>
               

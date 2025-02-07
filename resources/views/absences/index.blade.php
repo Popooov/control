@@ -2,11 +2,11 @@
   <x-slot:heading>
     Ausencias
   </x-slot:heading>
-  <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+  <div class="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-2xl lg:px-8">
     <ul role="list" class="divide-y divide-gray-100">
         @foreach ($absences as $absence)
         <li class="gap-x-6 py-5 bg-slate-100">
-          <a class="flex justify-evenly" href="/absences/{{ $absence['id'] }}">
+          <a class="flex justify-between" href="/absences/{{ $absence['id'] }}">
             <div class="flex min-w-0 gap-x-4">
               {{-- <img class="size-12 flex-none rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""> --}}
               <div class="min-w-0 flex-auto">

@@ -24,8 +24,12 @@ class RegisteredUserController extends Controller
     public function create()
     {
         $departments = Department::all();
+        $alias = ['user', 'admin'];
 
-        return view('auth.register', ['departments' => $departments]);
+        return view('auth.register', [
+            'departments' => $departments, 
+            'alias' => $alias]
+    );
     }
 
     /**
