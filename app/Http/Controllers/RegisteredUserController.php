@@ -27,7 +27,7 @@ class RegisteredUserController extends Controller
         $alias = ['user', 'admin'];
 
         return view('auth.register', [
-            'departments' => $departments, 
+            'departments' => $departments,
             'alias' => $alias]
     );
     }
@@ -45,10 +45,10 @@ class RegisteredUserController extends Controller
             'alias' => ['required'],
             'password' => ['required', Password::min(6), 'confirmed'],
         ]);
+        
+        User::firstOrCreate($attributes);
 
-        $user = User::create($attributes);
-
-        Auth::login($user);
+        // Auth::login($user);
 
         return redirect('/absences');
     }

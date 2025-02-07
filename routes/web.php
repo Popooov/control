@@ -5,7 +5,7 @@ use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'auth.login');
+Route::view('/', 'home');
 
 // Route::redirect('/', '/login');
 
@@ -18,7 +18,9 @@ Route::get('/absences/{absence}', [AbsenceController::class, 'show'])->middlewar
 Route::get('/absences/{absence}/edit', [AbsenceController::class, 'edit'])
     ->middleware('auth')
     ->can('edit', 'absence');
-Route::patch('/absences/{absence}', [AbsenceController::class, 'update'])->middleware('auth');
+Route::patch('/absences/{absence}', [AbsenceController::class, 'update'])
+    ->middleware('auth')
+    ->can('edit', 'absence');
 Route::delete('/absences/{absence}', [AbsenceController::class, 'destroy'])
     ->middleware('auth')
     ->can('delete', 'absence');
@@ -27,6 +29,7 @@ Route::delete('/absences/{absence}', [AbsenceController::class, 'destroy'])
 Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
-Route::get('/login', [SessionController::class, 'create']);
+Route::get('/login', [SessionController::class, 'create'])
+    ->can('view', 'user');
 Route::post('/login', [SessionController::class, 'store']);
 Route::post('/logout', [SessionController::class, 'destroy']);

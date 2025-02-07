@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-      Registrarse
+      Registrar usuario nuevo
     </x-slot:heading>
     <form method="POST" action="/register">
         @csrf
@@ -79,9 +79,9 @@
         </div>
       
 
-        <div class="mt-6 flex items-center justify-end gap-x-6">
+        <div class="mt-6 flex items-center justify-start gap-x-6">
           <a href="/" class="text-sm/6 font-semibold text-gray-700">Cancelar</a>
-          <x-form-button>Registrarse</x-form-button>
+          <x-form-button>Registrar</x-form-button>
         </div>
       </form>
 </x-layout>

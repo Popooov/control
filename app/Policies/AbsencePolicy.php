@@ -11,7 +11,8 @@ class AbsencePolicy
 
     public function edit(User $user, Absence $absence): bool
     {
-        return $absence->user->is($user);
+
+        return $absence->user->is($user) || $user->alias === 'admin';
     }
     /**
      * Determine whether the user can view any models.
