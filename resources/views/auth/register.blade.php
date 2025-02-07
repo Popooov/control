@@ -27,7 +27,21 @@
                 <x-form-label for="email">Correo electrónico</x-form-label>
                 <div class="mt-2">
                   <x-form-input name="email" id="email" type="email" required />
-                    <x-form-error name="email" />
+                  <x-form-error name="email" />
+                </div>
+              </x-form-field>
+
+              <x-form-field>
+                <x-form-label for="department_id">Departamento</x-form-label>
+                <div class="mt-2">
+                  <div class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+                    <select class="rounded-md block min-w-0 grow py-2.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6">
+                        @foreach($departments as $department)
+                            <option value="{{ $department->id }}">{{ $department->name }}</option>
+                        @endforeach
+                    </select>
+                  </div>
+                  <x-form-error name="department_id" />
                 </div>
               </x-form-field>
               
@@ -35,7 +49,7 @@
                 <x-form-label for="password">Contraseña</x-form-label>
                 <div class="mt-2">
                   <x-form-input name="password" id="password" type="password" required />
-                    <x-form-error name="password" />
+                  <x-form-error name="password" />
                 </div>
               </x-form-field>
 
@@ -43,7 +57,7 @@
                 <x-form-label for="password_confirmation">Confirmar contraseña</x-form-label>
                 <div class="mt-2">
                   <x-form-input name="password_confirmation" id="password_confirmation" type="password" required />
-                    <x-form-error name="password_confirmation" />
+                  <x-form-error name="password_confirmation" />
                 </div>
               </x-form-field>
 

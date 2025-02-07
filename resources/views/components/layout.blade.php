@@ -21,17 +21,17 @@
                                     {{-- <x-nav-link href="/" :active="request()->is('/')">Inicio</x-nav-link> --}}
                                     @auth
                                         <x-nav-link href="/absences" :active="request()->is('/absences')">Control de ausencias</x-nav-link>
+                                        <x-nav-link href="/register" :active="request()->is('register')">Registrar usuario nuevo</x-nav-link>
                                     @endauth
                                 </div>
                             </div>
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-4 flex items-center md:ml-6">
-                                @guest
+                                {{-- @guest
                                     <x-nav-link href="/login" :active="request()->is('login')">Iniciar Sesión</x-nav-link>
-                                @endguest
+                                @endguest --}}
 
-                                {{-- <x-nav-link href="/register" :active="request()->is('register')">Registrarse</x-nav-link> --}}
                                 
                                 @auth
                                     <form method='POST' action='/logout'>
@@ -46,16 +46,16 @@
             
                 <div class="md:hidden" id="mobile-menu">
                     <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                        <x-nav-link href="/" :active="request()->is('/')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Inicio</x-nav-link>
+                        {{-- <x-nav-link href="/" :active="request()->is('/')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Inicio</x-nav-link> --}}
                         @auth
                             <x-nav-link href="/absences" :active="request()->is('/absences')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Control de ausencias</x-nav-link>
                         @endauth
                     </div>
                     <div class="border-t border-gray-700 pb-3 pt-4">
-                        @guest
+                        {{-- @guest
                             <x-nav-link href="/login" :active="request()->is('login')" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Iniciar Sesión</x-nav-link>
                             <x-nav-link href="/register" :active="request()->is('register')" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Registrarse</x-nav-link>
-                        @endguest
+                        @endguest --}}
                         @auth
                             <form class='px-2 sm:px-3' method='POST' action='/logout'>
                                 @csrf

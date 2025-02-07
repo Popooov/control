@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,9 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $departments = Department::all();
+
+        return view('auth.register', ['departments' => $departments]);
     }
 
     /**
@@ -34,6 +37,8 @@ class RegisteredUserController extends Controller
             'first_name' => ['required'],
             'last_name' => ['required'],
             'email' => ['required', 'email'],
+            'department_id' => ['required'],
+            'alias' => ['required'],
             'password' => ['required', Password::min(6), 'confirmed'],
         ]);
 
