@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\AbsencePosted;
 use App\Models\Absence;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -55,7 +56,7 @@ class AbsenceController extends Controller
     public function store()
     {
         request()->validate([
-            'date' => ['required', 'date_format:Y-m-d'],
+            'date' => ['required'],
             'hour' => ['required'],
             'comment' => ['required', 'min:5'],
         ]);
@@ -113,12 +114,18 @@ class AbsenceController extends Controller
      */
     public function update(Absence $absence)
     {
+
+        if (Carbon::now()->diffInMinutes($absence->created_at) > 10) {
+            return redirect()('/absences/')
+                ->with('error', 'No se puede editar la ausencia después de 10 minutos.');
+        }
+
         request()->validate([
             'date' => ['required', 'date'],
             'hour' => ['required'],
             'comment' => ['required', 'min:5'],
         ]);
-        
+
         Absence::create([
             'user_id' => Auth::getUser()->id,
             'date' => request('date'),

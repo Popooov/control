@@ -13,7 +13,7 @@
         <div class="min-h-full">
             <nav class="bg-gray-800">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div class="flex h-16 items-center justify-between">
+                    <div class="flex h-14 items-center justify-between">
                         <div class="flex items-center">
                             
                             <div class="hidden md:block">
@@ -49,6 +49,7 @@
                         {{-- <x-nav-link href="/" :active="request()->is('/')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Inicio</x-nav-link> --}}
                         @auth
                             <x-nav-link href="/absences" :active="request()->is('/absences')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Control de ausencias</x-nav-link>
+                            <x-nav-link href="/register" :active="request()->is('/register')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Registrar usuario nuevo</x-nav-link>
                         @endauth
                     </div>
                     <div class="border-t border-gray-700 pb-3 pt-4">
