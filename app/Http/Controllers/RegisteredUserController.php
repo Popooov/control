@@ -40,13 +40,13 @@ class RegisteredUserController extends Controller
         $attributes = request()->validate([
             'first_name' => ['required'],
             'last_name' => ['required'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'max:250', 'unique:users'],
             'department_id' => ['required'],
             'alias' => ['required'],
             'password' => ['required', Password::min(6), 'confirmed'],
         ]);
         
-        User::firstOrCreate($attributes);
+        User::create($attributes);
 
         // Auth::login($user);
 

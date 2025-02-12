@@ -38,13 +38,13 @@ class AbsenceController extends Controller
             '14:00 - 6ª hora (mañana)',
         
             // Bloque de la tarde
-            '13:50-14:55 - 1ª hora (tarde)',
-            '14:40-15:50 - 2ª hora (tarde)',
-            '15:30-16:45 - 3ª hora (tarde)',
-            '13:20-17:15 - Recreo (tarde)',
-            '16:20-18:10 - 4ª hora (tarde)',
-            '17:10-19:05 - 5ª hora (tarde)',
-            '18:00-20:00 - 6ª hora (tarde)',
+            '14:00-14:55 - 1ª hora (tarde)',
+            '14:55-15:45 - 2ª hora (tarde)',
+            '15:45-16:45 - 3ª hora (tarde)',
+            '16:45-17:15 - Recreo (tarde)',
+            '17:15-18:10 - 4ª hora (tarde)',
+            '18:10-19:05 - 5ª hora (tarde)',
+            '19:05-20:00 - 6ª hora (tarde)',
         ];
 
         return view('absences.create', ['hours' => $hours]);
@@ -114,12 +114,6 @@ class AbsenceController extends Controller
      */
     public function update(Absence $absence)
     {
-
-        if (Carbon::now()->diffInMinutes($absence->created_at) > 10) {
-            return redirect()('/absences/')
-                ->with('error', 'No se puede editar la ausencia después de 10 minutos.');
-        }
-
         request()->validate([
             'date' => ['required', 'date'],
             'hour' => ['required'],

@@ -1,7 +1,4 @@
 <x-layout>
-  <x-slot:heading>
-    Ausencias
-  </x-slot:heading>
   <div class="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-2xl lg:px-8">
     <ul role="list" class="divide-y divide-gray-100">
         @foreach ($absences as $absence)
@@ -15,8 +12,8 @@
               </div>
             </div>
             <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-              <p class="text-sm/6 text-gray-900">{{ $absence->hour }}</p>
-              <p class="mt-1 text-xs/5 text-gray-500"><time datetime="2023-01-23T13:23Z">{{ $absence->created_at }}</time></p>
+              <p class="text-sm/6 text-gray-900">Hora de ausencia: {{ $absence->hour }}</p>
+              <p class="mt-1 text-xs/5 text-gray-500"><time>Fecha de ausencia: {{ $absence->date }}</time></p>
             </div>
           </a>
         @endforeach

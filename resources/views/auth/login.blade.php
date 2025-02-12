@@ -2,11 +2,11 @@
     <x-slot:heading>
         Inicio de sesión
     </x-slot:heading>
-    <form method="POST" action="/login">
+    <form class="space-y-6" method="POST" action="/login">
         @csrf
         <div class="space-y-12">
           <div class="border-b border-gray-900/10 pb-12">
-            <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-4">
               
               <x-form-field>
                 <x-form-label for="email">Correo electrónico</x-form-label>

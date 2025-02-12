@@ -20,8 +20,9 @@
                                 <div class="flex items-baseline space-x-4">
                                     {{-- <x-nav-link href="/" :active="request()->is('/')">Inicio</x-nav-link> --}}
                                     @auth
-                                        <x-nav-link href="/absences" :active="request()->is('/absences')">Control de ausencias</x-nav-link>
+                                        <x-nav-link href="/absences" :active="request()->is('absences')">Control de ausencias</x-nav-link>
                                         <x-nav-link href="/register" :active="request()->is('register')">Registrar usuario nuevo</x-nav-link>
+                                        <x-nav-link href="/absences/create" :active="request()->is('absences/create')">Añadir ausencia</x-nav-link>
                                     @endauth
                                 </div>
                             </div>
@@ -50,6 +51,7 @@
                         @auth
                             <x-nav-link href="/absences" :active="request()->is('/absences')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Control de ausencias</x-nav-link>
                             <x-nav-link href="/register" :active="request()->is('/register')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Registrar usuario nuevo</x-nav-link>
+                            <x-nav-link href="/absences/create" :active="request()->is('/register')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Añadir ausencia</x-nav-link>
                         @endauth
                     </div>
                     <div class="border-t border-gray-700 pb-3 pt-4">
@@ -67,14 +69,11 @@
                 </div>
             </nav>
         
-            <header class="bg-white shadow">
+            {{-- <header class="bg-white shadow">
                 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 sm:flex sm:justify-between sm:items-center">
                     <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
-                    @auth
-                        <x-button href="/absences/create">Añadir ausencia</x-button>
-                    @endauth
                 </div>
-            </header>
+            </header> --}}
             <main>
                 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                     {{ $slot }}
